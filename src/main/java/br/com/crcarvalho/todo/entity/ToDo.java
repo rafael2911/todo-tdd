@@ -1,10 +1,26 @@
 package br.com.crcarvalho.todo.entity;
 
-public class ToDo {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class ToDo {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String text;
 	private boolean completed;
+	
+	public ToDo() {
+	}
+	
+	public ToDo(String text, boolean completed) {
+		this.text = text;
+		this.completed = completed;
+	}
 
 	public ToDo(Long id, String text, boolean completed) {
 		this.id = id;
